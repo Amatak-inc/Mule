@@ -1,6 +1,6 @@
 <?php
 session_start();
-$host = "ec2-54-201-124-36.us-west-2.compute.amazonaws.com";
+$host = "localhost";
 $user = "root";
 $password = "973610";
 $port = 8889;
