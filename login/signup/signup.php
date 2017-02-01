@@ -17,8 +17,8 @@ if ($conn->connect_error) {
 hearder("Location: .") or die("not working 3");
 die();
 }
-//$query1 = mysqli_query($conn, "INSERT INTO pendingusers (id,FirstName,LastName,email,password,Phone,Credit) VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$password."','".$_POST["phone"]."','".$_POST["credit"]."')");
-//$query2 = mysqli_query($conn, "");
+$query1 = mysqli_query($conn, "INSERT INTO pendingusers (id,FirstName,LastName,email,password,Phone,Credit) VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$password."','".$_POST["phone"]."','".$_POST["credit"]."')");
+$query2 = mysqli_query($conn, "SELECT * FROM pendingusers where email = ".$_POST["email"]);
 if ($_POST["email"] !== null){
 mail($_POST["email"], "Confirm Email | Mule","To Confirm your account please click on this link/n<a href='http://ec2-54-201-124-36.us-west-2.compute.amazonaws.com/login/signup/confirm.php'>Confirm</a>","From: noreply@mule.com");
 }
