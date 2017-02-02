@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     hearder("Location: .") or die("not working 3");
     die();
 }
-if ($_POST["pw"] == $_POST["repassword"]){
+if ($_POST["pw"] !== $_POST["repassword"]){
     $_SESSION["signuperror"] = "passwords are different";
     header("Location: .");
     die();
