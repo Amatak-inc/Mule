@@ -5,22 +5,35 @@ $user = "root";
 $password = "973610";
 $port = 8889;
 $db = "Mule";
+$_SESSION["signuperror"] = "";
 $conn = new mysqli($host, $user, $password, $db) or die("not working 2");
+$query1 = mysqli_query($conn, "INSERT INTO pendingusers (id,FirstName,LastName,email,password,Phone,Credit) VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$password."','".$_POST["phone"]."','".$_POST["credit"]."')");
+$query2 = mysqli_query($conn, "SELECT * FROM users where email = ".$_POST["email"]);
+$query3 = mysqli_query($conn, "SELECT * FROM users where credit = ".$_POST["credit"]);
+$query4 = mysqli_query($conn, "SELECT * FROM users where phone = ".$_POST["phone"]);
 if ($_POST["pw"] == $_POST["repassword"]){
-$password = $_POST["pw"];
+    $_SESSION["signuperror"] = "passwords are different";
+    header("Location: .");
+    die();
+}else if ($query2 !== null){
+    $_SESSION["signuperror"] = "<br/>there is already an account with that email";
+    header("Location: .");
+    die();
+}else if ($query3 !== null){
+    $_SESSION["signuperror"] = "<br/>there is already an account with that credit card number";
+    header("Location: .");
+    die();
+}else if ($query4 !== null){
+    $_SESSION["signuperror"] = "<br/>there is already an account with that credit card number"
 }else{
-$_SESSION["signuperror"] = "passwords are different";
-header("Location: .");
-die();
+    $password = $_POST["pw"];
 }
 if ($conn->connect_error) {
-hearder("Location: .") or die("not working 3");
-die();
+    hearder("Location: .") or die("not working 3");
+    die();
 }
-$query1 = mysqli_query($conn, "INSERT INTO pendingusers (id,FirstName,LastName,email,password,Phone,Credit) VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$password."','".$_POST["phone"]."','".$_POST["credit"]."')");
-$query2 = mysqli_query($conn, "SELECT * FROM pendingusers where email = ".$_POST["email"]);
 if ($_POST["email"] !== null){
-mail($_POST["email"], "Confirm Email | Mule","To Confirm your account please click on this link/n<a href='http://ec2-54-201-124-36.us-west-2.compute.amazonaws.com/login/signup/confirm.php'>Confirm</a>","From: noreply@mule.com");
+mail($_POST["email"], "Confirm Email | Mule","To Confirm your account please click on this link: http://ec2-54-201-124-36.us-west-2.compute.amazonaws.com/login/signup/confirm.php","From: noreply@mule.com");
 }
 ?>
 <!doctype html>
