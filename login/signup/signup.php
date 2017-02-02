@@ -7,10 +7,14 @@ $port = 8889;
 $db = "Mule";
 $_SESSION["signuperror"] = "";
 $conn = new mysqli($host, $user, $password, $db) or die("not working 2");
-$query1 = mysqli_query($conn, "INSERT INTO pendingusers (id,FirstName,LastName,email,password,Phone,Credit) VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$password."','".$_POST["phone"]."','".$_POST["credit"]."')");
-$query2 = mysqli_query($conn, "SELECT * FROM users where email = ".$_POST["email"]);
-$query3 = mysqli_query($conn, "SELECT * FROM users where credit = ".$_POST["credit"]);
-$query4 = mysqli_query($conn, "SELECT * FROM users where phone = ".$_POST["phone"]);
+$query2 = mysqli_query($conn, "SELECT * FROM users where email = ".$_POST["email"]) or die ("test1");
+$query3 = mysqli_query($conn, "SELECT * FROM users where credit = ".$_POST["credit"]) or die ("test2");
+$query4 = mysqli_query($conn, "SELECT * FROM users where phone = ".$_POST["phone"]) or die ("test2");
+
+if ($conn->connect_error) {
+    hearder("Location: .") or die("not working 3");
+    die();
+}
 if ($_POST["pw"] == $_POST["repassword"]){
     $_SESSION["signuperror"] = "passwords are different";
     header("Location: .");
@@ -24,16 +28,13 @@ if ($_POST["pw"] == $_POST["repassword"]){
     header("Location: .");
     die();
 }else if ($query4 !== null){
-    $_SESSION["signuperror"] = "<br/>there is already an account with that credit card number"
+    $_SESSION["signuperror"] = "<br/>there is already an account with that credit card number";
 }else{
     $password = $_POST["pw"];
 }
-if ($conn->connect_error) {
-    hearder("Location: .") or die("not working 3");
-    die();
-}
 if ($_POST["email"] !== null){
-mail($_POST["email"], "Confirm Email | Mule","To Confirm your account please click on this link: http://ec2-54-201-124-36.us-west-2.compute.amazonaws.com/login/signup/confirm.php","From: noreply@mule.com");
+mail($_POST["email"], "Confirm Email | Mule","To Confirm your account please click on this link: http://ec2-54-201-124-36.us-west-2.compute.amazonaws.com/login/signup/confirm.php".$id,"From: noreply@mule.com");
+mysqli_query($conn, "INSERT INTO pendingusers (id,FirstName,LastName,email,password,Phone,Credit) VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$password."','".$_POST["phone"]."','".$_POST["credit"]."')");
 }
 ?>
 <!doctype html>
