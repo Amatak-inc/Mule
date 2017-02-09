@@ -17,6 +17,7 @@
 
 <title>Mule</title>
 
+<script type="text/javascript" src="../going/countries.js"></script>
 </head>
 
 <body align="center">
@@ -39,9 +40,10 @@
 
 <div id="container">
 
-    <form id="searchform" method="POST" action="submit.php">
+    <form id="searchform" method="POST" action="want.php">
 
-        Departing From: <input></input>
+        Departing From (Country: <select id="depcount" name="depcount"></select> State: <select id="depstate" name="depstate"></select><br/><br/>
+        Arriving In (Country): <select id="arrcount" name="arrcount"></select> State: <select id="arrstate" name="arrstate"></select><br/><br/>
 
     </form>
 
@@ -109,6 +111,12 @@ li.topbarlist {
 
 }
 
+input {
+
+    border: 1px solid #151515;
+
+}
+
 li.topbarlist:hover {
 
     background-color: #01A9DB;
@@ -146,3 +154,7 @@ h2 {
 }
 
 </style>
+<script type="text/javascript">
+populateCountries("arrcount", "arrstate");
+populateCountries("depcount", "depstate");
+</script>
