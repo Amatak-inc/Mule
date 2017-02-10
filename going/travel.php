@@ -25,9 +25,9 @@ $arrivestate = $_REQUEST["arrstate"];
 $price = $_REQUEST["price"];
 $size = $_REQUEST["size"];
 $date = $_REQUEST["arrdate"];
+$userid = $_SESSION["id"];
 
-$getid = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM users WHERE FirstName = '".$_SESSION["first"]."' and LastName = '".$_SESSION["last"]."' and email = '".$_SESSION["email"]."' and password = '".$_SESSION["password"]."'"));
-$addrow = mysqli_query($conn, "INSERT INTO muleinput ('id', 'origin', 'destination', 'price', 'size', 'muleid', 'arrivaldate', 'timestamp') VALUES (NULL, '".$departcountry."', '".$arrivecountry."', '".$price."', '".$size."', '".$getid["id"]."', '".$date."', CURRENT_TIMESTAMP)") or die(mysqli_error($conn));
+$addrow = mysqli_query($conn, "INSERT INTO muleinput ('id', 'origin', 'destination', 'price', 'size', 'muleid', 'arrivaldate', 'timestamp') VALUES (NULL, '".$departcountry."', '".$arrivecountry."', '".$price."', '".$size."', '".$userid."', '".$date."', CURRENT_TIMESTAMP)") or die(mysqli_error($conn));
 if ($addrow) {
 header("Location: ..");
 die();
