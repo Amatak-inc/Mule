@@ -26,6 +26,7 @@ First Name: <input id="firstnameinput" name="firstname" required/><hr/>
 Last Name: <input id="lastnameinput" name="lastname" required/><hr/>
 Email: <input id="emailinput" name="email" required/><hr/>
 Phone number: <input id="phoneinput" name="phone" required/><hr/>
+Credit card number: <input id="creditinput" name="credit" required/><hr/>
 Password: <input type="password" id="pwinput" name="pw" required/><hr/>
 Re-type Password: <input type="password" id="repwinput" name="repassword" required/><hr/>
 <button id="submitbutton">sign up</button> Already have an account? <a href="..">Login.</a>
