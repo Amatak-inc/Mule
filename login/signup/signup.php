@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 $conn = new mysqli($host, $user, $password, $db) or die("not working 2");
 $query2 = mysqli_query($conn, "SELECT * FROM users where email = '".$_POST["email"]."';") or die ("test1");
 $query3 = mysqli_query($conn, "SELECT * FROM users where credit = '".$_POST["credit"]."';") or die ("test2");
-$query4 = mysqli_query($conn, "SELECT * FROM users where phone = '".$_POST["phone"."';"]) or die ("test2");
+$query4 = mysqli_query($conn, "SELECT * FROM users where phone = '".$_POST["phone"."';"]) or die ("test3");
 
 if ($_POST["pw"] !== $_POST["repassword"]){
     $_SESSION["signuperror"] = "passwords are different";

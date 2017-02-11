@@ -20,7 +20,7 @@ $loginresult = mysqli_query($conn, "SELECT * FROM users WHERE email = '".$email.
 
 $row = mysqli_fetch_array($loginresult) or header("Location: .");
 if ($row["email"] == $email && $row["password"] == $pw){
-$_SESSION["id"] = $row["id"];
+$_SESSION["id"] = $row["id"]; 
 $_SESSION["first"] = $row["FirstName"];
 $_SESSION["last"] = $row["LastName"];
 $_SESSION["email"] = $row["email"];
