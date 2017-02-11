@@ -7,7 +7,7 @@ $port = 8889;
 $db = "Mule";
 $_SESSION["signuperror"] = null;
 if ($conn->connect_error) {
-    hearder("Location: .") or die("not working 3");
+    die("not working 3");
     die();
 }
 $conn = new mysqli($host, $user, $password, $db) or die("not working 2");
