@@ -50,9 +50,9 @@
         Date of Arrival: <input type="date" name="arrdate"></input><br/><br/>
         price: <input type="number" name="price" value=25></input><br/><br/>
         <div id="sizeinput">
-        size: <input type="radio" name="size" value="small" selected>small</input>
-        <input type="radio" name="size" value="medium">medium</input>
-        <input type="radio" name="size" value="large">large</input>
+        size: <input type="radio" name="size" value=0 selected>small</input>
+        <input type="radio" name="size" value=1>>medium</input>
+        <input type="radio" name="size" value=2>large</input>
         </div>
         <button>Submit</button>
 
