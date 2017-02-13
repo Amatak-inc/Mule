@@ -6,7 +6,9 @@ $password = "973610";
 $port = 8889;
 $db = "Mule";
 if ($conn->connect_error) {
-    die("not working 3");
+    $_SESSION["signuperror"] = "could not connect to database";
+    header("Location: .");
+    die();
 }
 $conn = new mysqli($host, $user, $password, $db) or die("not working 2");
 $query2 = mysqli_query($conn, "SELECT * FROM users where email = '".$_POST["email"]."';") or die ("test1");
