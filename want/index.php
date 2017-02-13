@@ -44,7 +44,7 @@
 
         Departing From (Country: <select id="depcount" name="depcount"></select> State: <select id="depstate" name="depstate"></select><br/><br/>
         Arriving In (Country): <select id="arrcount" name="arrcount"></select> State: <select id="arrstate" name="arrstate"></select><br/><br/>
-
+        <button>Search</button>
     </form>
 
 </div>
@@ -74,6 +74,18 @@
     margin-top: 15%;
 
     padding: 20px;
+
+}
+
+button {
+
+    background-color: #01DF01;
+
+    border: 1px solid black;
+
+    border-radius: 5px;
+
+    margin: 5px;
 
 }
 
