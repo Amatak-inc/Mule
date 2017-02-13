@@ -14,9 +14,8 @@ $conn = new mysqli($host, $user, $password, $db) or die("not working 2");
 $query2 = mysqli_query($conn, "SELECT * FROM users where email = '".$_POST["email"]."';") or die ("test1");
 $query3 = mysqli_query($conn, "SELECT * FROM users where credit = '".$_POST["credit"]."';") or die ("test2");
 $query4 = mysqli_query($conn, "SELECT * FROM users where phone = '".$_POST["phone"]."';") or die ("test3");
-echo $query2;
-die();
-if ($_POST["pw"] !== $_POST["repassword"]){
+echo($query2);
+/*if ($_POST["pw"] !== $_POST["repassword"]){
     $_SESSION["signuperror"] = "passwords are different";
     header("Location: .");
     die();
@@ -36,7 +35,7 @@ if ($_POST["pw"] !== $_POST["repassword"]){
 if ($_POST["email"] !== null){
 mail($_POST["email"], "Confirm Email | Mule","To Confirm your account please click on this link: http://ec2-54-201-124-36.us-west-2.compute.amazonaws.com/login/signup/confirm.php".$id,"From: noreply@mule.com");
 mysqli_query($conn, "INSERT INTO pendingusers (id,FirstName,LastName,email,password,Phone,Credit) VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$password."','".$_POST["phone"]."','".$_POST["credit"]."')");
-}
+}*/
 ?>
 <!doctype html>
 <head>
