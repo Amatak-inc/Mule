@@ -26,8 +26,7 @@ $price = $_REQUEST["price"];
 $size = $_REQUEST["size"];
 $date = $_REQUEST["arrdate"];
 $userid = $_SESSION["id"];
-die ("INSERT INTO travels (timestamp, [from], to, arrival, price, size, muleid) VALUES (CURRENT_TIMESTAMP, '".$departstate.":".$departcountry."', '".$arrivestate.":".$departcountry."', '".$date."', '".$price."', ".$size.", '".$userid."')");
-$addrow = mysqli_query($conn, "INSERT INTO travels (timestamp, [from], to, arrival, price, size, muleid) VALUES (CURRENT_TIMESTAMP, '".$departstate.":".$departcountry."', '".$arrivestate.":".$departcountry."', '".$date."', '".$price."', ".$size.", '".$userid."')") or die(mysqli_error($conn));
+$addrow = mysqli_query($conn, "INSERT INTO travels (timestamp, `from`, `to`, arrival, price, size, muleid) VALUES (CURRENT_TIMESTAMP, '".$departstate.":".$departcountry."', '".$arrivestate.":".$departcountry."', '".$date."', '".$price."', ".$size.", '".$userid."')") or die(mysqli_error($conn));
 if ($addrow) {
 header("Location: ..");
 die();
