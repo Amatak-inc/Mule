@@ -15,6 +15,7 @@ $query2 = mysqli_query($conn, "SELECT * FROM users where email = '".$_POST["emai
 $query3 = mysqli_query($conn, "SELECT * FROM users where credit = '".$_POST["credit"]."';") or die ("test2");
 $query4 = mysqli_query($conn, "SELECT * FROM users where phone = '".$_POST["phone"]."';") or die ("test3");
 echo $query2;
+die();
 if ($_POST["pw"] !== $_POST["repassword"]){
     $_SESSION["signuperror"] = "passwords are different";
     header("Location: .");
