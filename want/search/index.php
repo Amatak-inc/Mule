@@ -37,7 +37,7 @@ if ($conn->connect_error) {
 
         <a href="../going" class="black"><li class="topbarlist">Going Somewhere</li></a>
 
-        <a href=".." class="black">><li class="topbarlist">Need Something</li></a>
+        <a href=".." class="black"><li class="topbarlist">Need Something</li></a>
 
     </ul>
 
