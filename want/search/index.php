@@ -9,6 +9,17 @@
         die();
 
     }
+$host = "localhost";
+$user = "root";
+$password = "973610";
+$port = 8889;
+$db = "Mule";
+$conn = new mysqli($host, $user, $password, $db);
+
+if ($conn->connect_error) {
+    die("not working");
+    die();
+}
 ?>
 <!doctype html>
 <head>
@@ -26,7 +37,7 @@
 
         <a href="../going" class="black"><li class="topbarlist">Going Somewhere</li></a>
 
-        <li class="topbarlist">Need Something</li>
+        <a href=".." class="black">><li class="topbarlist">Need Something</li></a>
 
     </ul>
 
@@ -34,7 +45,11 @@
 
 <div id="container">
 
-    
+<?php
+$departingcountry = $_POST["depcount"];
+$getresults = mysqli_query($conn, "SELECT muleid FROM travels WHERE `from` LIKE '".$_POST["arrcount"]."'");
+echo $getresults;
+?>
 
 </div>
 
