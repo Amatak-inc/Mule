@@ -48,7 +48,6 @@ if ($conn->connect_error) {
 <?php
 $departingcountry = $_POST["depcount"];
 $getresults = mysqli_query($conn, "SELECT muleid FROM travels WHERE `from` LIKE '".$_POST["arrcount"]."'");
-echo $getresults;
 ?>
 
 </div>
