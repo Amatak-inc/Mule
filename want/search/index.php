@@ -52,7 +52,10 @@ if ($getresults-num_rows > 0) {
     while($row = $getresults->fetch_assoc()){
         echo "id: ".$row["id"]. " - muleid: ".$row["muleid"];
     }
+} else {
+    echo "could not find any results that matched your search, go <a href='..'>back</a>";
 }
+$conn->close();
 ?>
 
 </div>
