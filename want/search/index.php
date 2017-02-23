@@ -69,7 +69,7 @@ $conn->close();
 
     position: relative;
 
-    left: 35%;
+    left: 25%;
 
     border: 1px solid black;
 
