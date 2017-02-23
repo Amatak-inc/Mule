@@ -47,7 +47,7 @@ if ($conn->connect_error) {
 
 <?php
 $departingcountry = $_POST["depcount"];
-$getresults = mysqli_query($conn, "SELECT * FROM travels WHERE `from` LIKE '%".$_REQUEST["arrcount"]."'");
+$getresults = mysqli_query($conn, "SELECT * FROM travels WHERE `from` LIKE '%".$_REQUEST["depcount"]."'");
 if ($getresults-num_rows > 0) {
     while($row = $getresults->fetch_assoc()){
         $getuser = mysqli_query($conn, "SELECT * FROM users WHERE id = ".$row["muleid"]);
