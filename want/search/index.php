@@ -33,9 +33,9 @@ if ($conn->connect_error) {
 
     <ul id="toplist">
 
-        <a href="../" class="black"><li class="topbarlist">Home</li></a>
+        <a href="../../" class="black"><li class="topbarlist">Home</li></a>
 
-        <a href="../going" class="black"><li class="topbarlist">Going Somewhere</li></a>
+        <a href="../../going" class="black"><li class="topbarlist">Going Somewhere</li></a>
 
         <a href=".." class="black"><li class="topbarlist">Need Something</li></a>
 
