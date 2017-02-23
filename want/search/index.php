@@ -52,7 +52,7 @@ if ($getresults-num_rows > 0) {
     while($row = $getresults->fetch_assoc()){
         $getuser = mysqli_query($conn, "SELECT * FROM users WHERE id = ".$row["muleid"]);
         $user = $getuser->fetch_assoc();
-        echo "FirstName: ".$user;
+        echo "FirstName: ".$user["FirstName"];
     }
 } else {
     echo "could not find any results that matched your search, go <a href='..'>back</a>";
