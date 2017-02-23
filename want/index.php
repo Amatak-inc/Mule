@@ -40,7 +40,7 @@
 
 <div id="container">
 
-    <form id="searchform" method="POST" action="search">
+    <form id="searchform" method="GET" action="search">
 
         Departing From (Country: <select id="depcount" name="depcount"></select> State: <select id="depstate" name="depstate"></select><br/><br/>
         Arriving In (Country): <select id="arrcount" name="arrcount"></select> State: <select id="arrstate" name="arrstate"></select><br/><br/>
