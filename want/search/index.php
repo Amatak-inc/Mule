@@ -51,7 +51,8 @@ $getresults = mysqli_query($conn, "SELECT * FROM travels WHERE `from` LIKE '%".$
 if ($getresults-num_rows > 0) {
     while($row = $getresults->fetch_assoc()){
         $getuser = mysqli_query($conn, "SELECT * FROM users WHERE id = ".$row["muleid"]);
-        echo "FirstName: ".$getuser;
+        $user = $getuser->fetch_assoc();
+        echo "FirstName: ".$user;
     }
 } else {
     echo "could not find any results that matched your search, go <a href='..'>back</a>";
