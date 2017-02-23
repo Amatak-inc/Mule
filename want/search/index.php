@@ -75,7 +75,7 @@ $conn->close();
 
     border-radius: 5px;
 
-    width: 25%;
+    width: 50%;
 
     font-family: sans-serif;
 
