@@ -52,7 +52,7 @@ if ($getresults-num_rows > 0) {
     while($row = $getresults->fetch_assoc()){
         $getuser = mysqli_query($conn, "SELECT * FROM users WHERE id = ".$row["muleid"]);
         $user = $getuser->fetch_assoc();
-        echo "<a href='accept.php?".$row["muleid"]."'>Name: ".$user["FirstName"]." ".$user["LastName"]." | From: ".$row["from"]." | To: ".$row["to"]." | Date: ".$row["arrival"]."</a>";
+        echo "Name: ".$user["FirstName"]." ".$user["LastName"]." | From: ".$row["from"]." | To: ".$row["to"];
     }
 } else {
     echo "could not find any results that matched your search, go <a href='..'>back</a>";
