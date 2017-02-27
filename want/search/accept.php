@@ -21,4 +21,5 @@ if ($conn->connect_error) {
     die();
 }
 mysqli_query($conn, "INSERT INTO travelconfirms (acceptid, travelid) VALUES (".$_SESSION["id"].", ".$_GET["id"].")") or die("could not confirm");
+header("Location: ../../");
 ?>
