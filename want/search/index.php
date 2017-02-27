@@ -165,7 +165,7 @@ body {
 
     margin: 0;
 
-    background-image: url("../images/hong kong.jpg");
+    background-image: url("../../images/hong kong.jpg");
 
 }
 
